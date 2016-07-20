@@ -14,12 +14,20 @@ class BitcoinPrice:
         soup = BeautifulSoup(html)
         btcString = soup.head.title.string
         btcPrice = ''
+        
+        btcString = list(btcString.encode("utf-8"))
 
-        for char in btcString:
+        for x in range(len(btcString)):
+            
+            if x is 15:     # only interested in the beginning of the string
 
-            if char.isdigit:
+                break
 
-                btcPrice += char
-
-        print "Current Bitcoin price is : ", btcPrice
+            if btcString[x].isdigit() or btcString[x] is '.':
+                
+                btcPrice += btcString[x] 
+       
+        btcPrice = float(btcPrice)
+        
+        return btcPrice
 
