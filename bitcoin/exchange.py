@@ -14,7 +14,7 @@ def buy_bitcoin(price):
 
 def sell_bitcoin(price):
 
-    amount = ('sell', int(raw_input("How much do you want to sell?")))
+    amount = int(raw_input("How much do you want to sell?"))
 
     if amount > 750 or amount <= 5:
 
@@ -25,4 +25,6 @@ def sell_bitcoin(price):
     amount = ('sell', amount)
 
     return amount
+
+print sell_bitcoin(600)
 
