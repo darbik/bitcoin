@@ -8,6 +8,8 @@ def buy_bitcoin(price):
 
             amount = int(raw_input("Sorry please try another amount between $5 and $750."))
 
+    return amount
+
 def sell_bitcoin(price):
 
     amount = int(raw_input("How much do you want to sell?"))
@@ -17,4 +19,6 @@ def sell_bitcoin(price):
         while amount > 750 or amount <= 5:
 
             amount = int(raw_input("Sorry please try another amount between $5 and $750."))
+    
+    return amount
 
