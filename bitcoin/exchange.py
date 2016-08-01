@@ -26,5 +26,3 @@ def sell_bitcoin(price):
 
     return amount
 
-print sell_bitcoin(600)
-
