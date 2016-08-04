@@ -26,3 +26,10 @@ def sell_bitcoin(price):
 
     return amount
 
+def calculate_fees(atmAmount):
+    
+    additionalFee = (((atmAmount / 7500) - 1) * 0.35)   
+
+    return additionalFee
+
+
