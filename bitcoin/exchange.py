@@ -32,4 +32,17 @@ def calculate_fees(atmAmount):
 
     return additionalFee
 
+def display_transaction(amount, price):
+
+    operation, amount = (amount)
+    
+    if operation == 'buy':
+
+        print "You are buying %.8f bitcoin." % (amount / price * 0.95) 
+
+    elif operation == 'sell':
+
+        print "You are selling %.8f bitcoin." % (amount / price * 0.95)
+    
+    print "Your transaction costs %.8f bitcoin in fees." % (amount / price * 0.05)
 
