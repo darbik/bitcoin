@@ -12,3 +12,9 @@ def get_time(atmid):
 
     return time
 
+def get_fees(atmid, price, amount):
+
+    feesMade = (atmid, (amount / price) * 0.05)
+
+    return feesMade
+
