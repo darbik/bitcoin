@@ -46,3 +46,67 @@ def display_transaction(amount, price):
     
     print "Your transaction costs %.8f bitcoin in fees." % (amount / price * 0.05)
 
+def find_denominations(amount):
+
+    operation, amount = amount
+    
+    if operation == 'sell':
+
+        remainder = amount
+        nFifty = 0
+        nTwenty = 0
+        nTen = 0
+        nFive = 0
+
+        try:
+
+            if remainder % 50 < 50:
+
+                nFifty = amount / 50
+                remainder = remainder % 50
+                amount = remainder
+
+        except:
+
+            pass
+        
+        try:
+            
+            if remainder % 20 < 20:
+
+                nTwenty = amount / 20
+                remainder = remainder % 20
+                amount = remainder
+
+        except:
+
+            pass
+
+        try:
+
+            if remainder % 10 < 10:
+
+                nTen = amount / 10
+                remainder = remainder % 10
+                amount = remainder
+
+        except:
+
+            pass
+
+        try:
+
+            if remainder % 5 < 5:
+
+                nFive = amount / 5
+                remainder = remainder % 5
+                amount = remainder
+
+        except:
+
+            pass
+
+        denominations = (nFifty, nTwenty, nTen, nFive)
+
+        return denominations
+
