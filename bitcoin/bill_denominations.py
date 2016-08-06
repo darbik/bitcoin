@@ -1,8 +1,6 @@
-transaction = 320
-remainder = transaction
-
-while remainder != 0:
+def find_denominations(transaction):
     
+    remainder = transaction
     nFifty = 0
     nfTwenty = 0
     nTen = 0
@@ -55,5 +53,8 @@ while remainder != 0:
     except:
 
         pass
+    
+    denominations = (nFifty, nTwenty, nTen, nFive)
 
-print nFifty, nTwenty, nTen, nFive, transaction
+    return denominations
+
