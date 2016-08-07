@@ -49,14 +49,14 @@ while go == 'y':
     buyorsell = raw_input("\nBuy or sell?") 
     howmuch = int(raw_input("How much?"))
 
-    if howmuch > 750 or howmuch <= 0:
+    if howmuch > 500 or howmuch <= 0:
 
         while True:
 
             print "Max $750, please try again."
             howmuch = int(raw_input("How much?"))
 
-            if howmuch <= 750:
+            if howmuch <= 500:
 
                 break
 
