@@ -5,7 +5,7 @@ class BitcoinPrice:
 
     def fetchBTC(self, driver):
 
-        driver.get("http://www.bfxdata.com/orderbooks/btcusd")
+        driver.get("http://www.coindesk.com/price/")
 
     def refreshBTC(self, driver):
 
@@ -19,7 +19,7 @@ class BitcoinPrice:
 
         for x in range(len(btcString)):
             
-            if x is 15:     # only interested in the beginning of the string
+            if x is 10:     # only interested in the beginning of the string
 
                 break
 
