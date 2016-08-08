@@ -46,10 +46,11 @@ def display_transaction(amount, price):
     
     print "Your transaction costs %.8f bitcoin in fees." % (amount / price * 0.05)
 
-def find_denominations(amount):
+def find_denominations(amount, availableBills):
 
     operation, amount = amount
-    
+    (fifties, twenties, tens, fives) = availableBills
+
     if operation == 'sell':
 
         remainder = amount
@@ -60,11 +61,23 @@ def find_denominations(amount):
 
         try:
 
-            if remainder % 50 < 50:
+            if remainder % 50 < 50 and fifties != 0:
 
                 nFifty = amount / 50
-                remainder = remainder % 50
-                amount = remainder
+                
+                if nFifty > fifties:
+
+                    while nFifty > fifties:
+
+                        nFifty -= 1
+
+                    remainder -= (nFifty * 50)
+                    amount = remainder
+                
+                else:
+
+                    remainder = remainder % 50
+                    amount = remainder
 
         except:
 
@@ -72,11 +85,23 @@ def find_denominations(amount):
         
         try:
             
-            if remainder % 20 < 20:
+            if remainder % 20 < 20 and twenties != 0:
 
                 nTwenty = amount / 20
-                remainder = remainder % 20
-                amount = remainder
+                
+                if nTwenty > twenties:
+
+                    while nTwenty > twenties:
+
+                        nTwenty -= 1
+
+                    remainder -= (nTwenty * 20)
+                    amount = remainder
+                
+                else:
+
+                    remainder = remainder % 20
+                    amount = remainder
 
         except:
 
@@ -84,11 +109,23 @@ def find_denominations(amount):
 
         try:
 
-            if remainder % 10 < 10:
+            if remainder % 10 < 10 and tens != 0:
 
                 nTen = amount / 10
-                remainder = remainder % 10
-                amount = remainder
+                
+                if nTen > tens:
+
+                    while nTen > tens:
+
+                        nTen -= 1
+
+                    remainder -= (nTen * 10)
+                    amount = remainder
+                
+                else:
+
+                    remainder = remainder % 10
+                    amount = remainder
 
         except:
 
@@ -96,11 +133,23 @@ def find_denominations(amount):
 
         try:
 
-            if remainder % 5 < 5:
-
+            if remainder % 5 < 5 and fives != 0:
+                
                 nFive = amount / 5
-                remainder = remainder % 5
-                amount = remainder
+                
+                if nFive > fives:
+
+                    while nFive > fives:
+
+                        nFive -= 1
+
+                    remainder -= (nFive * 5)
+                    amount = remainder
+
+                else:
+
+                    remainder = remainder % 5
+                    amount = remainder
 
         except:
 
@@ -110,3 +159,4 @@ def find_denominations(amount):
 
         return denominations
 
+print find_denominations(('sell', 335), (1, 25, 1, 6))
