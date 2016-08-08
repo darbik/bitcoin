@@ -165,11 +165,11 @@ def find_denominations(amount, availableBills):
 
             if answer == option1:
 
-                denominations = find_denominations(('sell', answer), (1, 1, 2, 0))
+                denominations = find_denominations(('sell', answer), availableBills)
             
             elif answer == option2:
                 
-                denominations = find_denominations(('sell', answer), (1, 1, 2, 0))
+                denominations = find_denominations(('sell', answer), availableBills)
             
         else:
 
