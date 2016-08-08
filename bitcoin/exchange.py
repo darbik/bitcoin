@@ -159,4 +159,3 @@ def find_denominations(amount, availableBills):
 
         return denominations
 
-print find_denominations(('sell', 335), (1, 25, 1, 6))
