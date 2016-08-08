@@ -50,6 +50,7 @@ def find_denominations(amount, availableBills):
 
     operation, amount = amount
     (fifties, twenties, tens, fives) = availableBills
+    value = amount
 
     if operation == 'sell':
 
@@ -154,8 +155,25 @@ def find_denominations(amount, availableBills):
         except:
 
             pass
+        
+        if remainder != 0:
 
-        denominations = (nFifty, nTwenty, nTen, nFive)
+            option1 = value - remainder
+            option2 = value + remainder
+
+            answer = int(raw_input("Sorry we can't create a transaction for %i, but we can make a transaction for %i or %i, which do you want?" % (value, option1, option2)))
+
+            if answer == option1:
+
+                denominations = find_denominations(('sell', answer), (1, 1, 2, 0))
+            
+            elif answer == option2:
+                
+                denominations = find_denominations(('sell', answer), (1, 1, 2, 0))
+            
+        else:
+
+            denominations = (nFifty, nTwenty, nTen, nFive)
 
         return denominations
 
